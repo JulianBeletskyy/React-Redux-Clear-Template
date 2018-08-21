@@ -8,9 +8,21 @@ Clear template for fast deploying React/Redux project. With routing, notificatio
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+### Installation packages:
+
+    React (16.4.2)
+    Redux (4.0.0)
+    Redux thunk (2.3.0)
+    React redux (5.0.7)
+    React router redux (5.0.0-alpha.9)
+    React router dom (4.3.1)
+    History (4.7.2)
+    Cross env (5.2.0)
+    React notifications (1.4.3)
+
 ### Installing
 
-For development env running you nust do two simple step
+For development env running you must do two simple step:
 
 ```
 npm install
@@ -20,31 +32,16 @@ npm install
 npm start
 ```
 
-Thats all, enjoy.
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+Thats all, enjoy ;).
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+For deploy project on a live system you must do this:
+
+```
+npm run-script build
+```
+After this 
 
 ## Built With
 
