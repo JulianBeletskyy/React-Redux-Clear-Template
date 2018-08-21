@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
+.App {
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.site__header {
+  	-webkit-animation: bounceInUp 1s;
+  	font-family: 'Open Sans', sans-serif;
+}
+
+.main-title {
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 30s infinite;
+    font-size: 6rem;
+    line-height: 1;
+}
+
+.template-text {
+    color: #7b8993;
+    font-size: 1.5rem;
+    letter-spacing: 10px;
+    font-weight: bold;
+}
+
+.header-list {
+    text-align: left;
+    font-size: 18px;
+}
+
+@-webkit-keyframes hue {
+	from {
+    	-webkit-filter: hue-rotate(0deg);
+	}
+
+	to {
+    	-webkit-filter: hue-rotate(-360deg);
+	}
+}
