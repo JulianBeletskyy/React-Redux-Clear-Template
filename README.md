@@ -1,38 +1,26 @@
 ![screenshot_1](https://user-images.githubusercontent.com/35832978/44406288-eceb7780-a563-11e8-99ee-ae293d1e12ba.png)
 
-# Project Title
+# React/Redux clear template
 
-One Paragraph of project description goes here
+Clear template for fast deploying React/Redux project. With routing, notifications, modal, multi languages and requests with clear structure.
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+For development env running you nust do two simple step
 
 ```
-Give the example
+npm install
 ```
 
-And repeat
-
 ```
-until finished
+npm start
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Thats all, enjoy.
 
 ## Running the tests
 
