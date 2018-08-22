@@ -46,23 +46,23 @@ Example:
 
 export default {
 	'public': [
-	        {
-	            'path': '/',
-	            'component': 'Main'
-	        }, {
-	            'path': '/about',
-	            'component': 'About'
-	        }, {
-	            'path': '*',
-	            'component': 'NotFound'
-	        }
-	    ],
-	    'private': [
-	        {
-	            'path': '/',
-	            'component': 'Main'
-	        },
-	    ]
+        {
+            'path': '/',
+            'component': 'Main'
+        }, {
+            'path': '/about',
+            'component': 'About'
+        }, {
+            'path': '*',
+            'component': 'NotFound'
+        }
+    ],
+    'private': [
+        {
+            'path': '/',
+            'component': 'Main'
+        },
+    ]
 }
 
 /* App.js */
@@ -71,21 +71,21 @@ import routing from 'config/route'
 
 ...
 
-	render() {
+render() {
+	...
+
+	const key = token ? 'private' : 'public'
+
+	return (
 		...
 
-		const key = token ? 'private' : 'public'
+		<Switch>
+		    { routing[key].map((route, i) => this.printRoutes(route, i)) }
+		</Switch>
 
-		return (
-			...
-
-			<Switch>
-			    { routing[key].map((route, i) => this.printRoutes(route, i)) }
-			</Switch>
-
-			...
-		)
-	}
+		...
+	)
+}
 
 ```
 
