@@ -35,6 +35,106 @@ npm start
 
 Thats all, enjoy ;).
 
+### Usage template
+
+#### Routing
+For add page to routing you must add to 'config/route.js' role (like: 'public', 'private' etc.) with array of objects routes (with path & Component). In App.js you can determine role.
+Example:
+
+```
+/* config/route.js */
+
+export default {
+	'public': [
+	        {
+	            'path': '/',
+	            'component': 'Main'
+	        }, {
+	            'path': '/about',
+	            'component': 'About'
+	        }, {
+	            'path': '*',
+	            'component': 'NotFound'
+	        }
+	    ],
+	    'private': [
+	        {
+	            'path': '/',
+	            'component': 'Main'
+	        },
+	    ]
+}
+
+/* App.js */
+
+import routing from 'config/route'
+
+...
+
+	render() {
+		...
+
+		const key = token ? 'private' : 'public'
+
+		return (
+			...
+
+			<Switch>
+			    { routing[key].map((route, i) => this.printRoutes(route, i)) }
+			</Switch>
+
+			...
+		)
+	}
+
+```
+
+#### Modal
+
+For open modal you must import toggleModal() function from 'actions/ui' and call it via dispatch.
+Example:
+
+```
+/* Import function & store */
+
+import store from 'store'
+import { toggleModal } from 'actions/ui'
+
+/* In your function */
+
+yourFunction = e => {
+	e.preventDefault()
+	store.dispatch(toggleModal(true, 'Title modal', <YourComponent />))
+}
+
+/* In your template */
+
+<a href="/" onClick={this.yourFunction}>Open modal</a>
+
+
+```
+
+#### Alert
+
+For show notification you must import setAlert() function from 'actions/ui' and call it via dispatch.
+Type of notification: 'success' (default), 'info', 'warning', 'error'.
+Delay: 2000ms (default).
+Example:
+
+```
+/* Import function & store */
+
+import store from 'store'
+import { setAlert } from 'actions/ui'
+
+/* In your function */
+
+yourFunction = e => {
+	e.preventDefault()
+	store.dispatch(setAlert('Text in notification', 'Type notification', delay))
+}
+```
+
 ## Deployment
 
 For deploy project on a live system you must do this:
@@ -46,28 +146,10 @@ npm install
 ```
 npm run-script build
 ```
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
 ## Authors
 
-* **Julian Beletskyy** - *Initial work* - [JulianBeletskyy](https://github.com/JulianBeletskyy)
+*Initial work* - [JulianBeletskyy](https://github.com/JulianBeletskyy)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
-
-
