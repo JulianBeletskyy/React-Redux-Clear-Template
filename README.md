@@ -10,15 +10,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installation packages:
 
-    React (16.4.2)
-    Redux (4.0.0)
-    Redux thunk (2.3.0)
-    React redux (5.0.7)
-    React router redux (5.0.0-alpha.9)
-    React router dom (4.3.1)
-    History (4.7.2)
-    Cross env (5.2.0)
-    React notifications (1.4.3)
+* [React (16.4.2)](https://reactjs.org)
+* [Redux (4.0.0)](https://redux.js.org)
+* [Redux thunk (2.3.0)](https://github.com/reduxjs/redux-thunk)
+* [React redux (5.0.7)](https://github.com/reduxjs/react-redux)
+* [React router redux (5.0.0-alpha.9)](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux)
+* [React router dom (4.3.1)](https://github.com/ReactTraining/react-router)
+* [History (4.7.2)](https://github.com/ReactTraining/history)
+* [Cross env (5.2.0)](https://github.com/kentcdodds/cross-env)
+* [React notifications (1.4.3)](https://github.com/minhtranite/react-notifications)
+* [Socket.io (2.1.1)](https://socket.io)
 
 ### Installing
 
@@ -39,15 +40,12 @@ Thats all, enjoy ;).
 For deploy project on a live system you must do this:
 
 ```
+npm install
+```
+
+```
 npm run-script build
 ```
-After this 
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
 
@@ -59,9 +57,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Julian Beletskyy** - *Initial work* - [JulianBeletskyy](https://github.com/JulianBeletskyy)
 
 ## License
 
