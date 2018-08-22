@@ -101,7 +101,7 @@ class About extends Component {
 			            	</div>
 		            	</div>
 		            	<div className="mb-3">
-		            		<a href="https://github.com/JulianBeletskyy" target="_blank" rel="noopener noreferrer">{getLang('Documentation')}</a>
+		            		<a href="https://github.com/JulianBeletskyy/React-Redux-Clear-Template" target="_blank" rel="noopener noreferrer">{getLang('Documentation')}</a>
 		            	</div>
 		            	<Link to="/">{getLang('Back')}</Link>
 	            	</div>

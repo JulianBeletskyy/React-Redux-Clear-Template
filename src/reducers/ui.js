@@ -1,9 +1,10 @@
 import * as types from 'actions/types'
 import Cookies from 'js-cookie'
+import { availableLangs } from 'utils/lang'
 
 const initialState = {
 	location: '/',
-	lang: Cookies.get('lang') || 'en',
+	lang: availableLangs().includes(Cookies.get('lang')) ? Cookies.get('lang') : 'en',
 	alert: {
 		message: '',
 		level: 'success',

@@ -7,8 +7,8 @@ import store, { history } from 'store'
 import { setLocation } from 'actions/ui'
 import Alert from 'components/alert'
 import Modal from 'components/modal'
+import Loader from 'components/loader'
 import './App.css'
-import io from 'socket.io-client'
 
 class App extends Component {
     constructor() {
@@ -16,14 +16,18 @@ class App extends Component {
         history.listen(location => {
             store.dispatch(setLocation(location.pathname))
         })
-        const socket = io('http://localhost:3000')
-        
-        socket.on('connect', () => {
-            console.log('connection')
-        })
-        socket.on('disconnect', () => {
-            console.log('disconnect')
-        })
+
+        this.state = {
+            token: false
+        }
+
+        this.getToken()
+    }
+
+    getToken = () => {
+        setTimeout(() => {
+            this.setState({token: true})
+        }, 3000)
     }
 
     printRoutes = (route, i) => <Route key={i} path={route.path} exact component={pages[route.component]} />
@@ -32,9 +36,13 @@ class App extends Component {
         const key = 'public' //private
         return (
             <div className="App">
-                <Switch>
-                    { routing[key].map((route, i) => this.printRoutes(route, i)) }
-                </Switch>
+                {
+                    this.state.token
+                    ?   <Switch>
+                            { routing[key].map((route, i) => this.printRoutes(route, i)) }
+                        </Switch>
+                    :   <Loader />
+                }
                 <Alert />
                 <Modal />
             </div>

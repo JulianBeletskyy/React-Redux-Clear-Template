@@ -5,8 +5,11 @@ export const getLang = val => {
 	if (typeof val !== 'string') {
 		return val
 	}
+	
 	const lang = store.getState().ui.lang
 	const key = Object.keys(list[lang]).find(item => item.toLowerCase() === val.toLowerCase())
 
 	return key ? list[lang][key] : val
 }
+
+export const availableLangs = () => Object.keys(list)
