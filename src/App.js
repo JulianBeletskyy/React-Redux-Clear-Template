@@ -17,9 +17,7 @@ class App extends Component {
             store.dispatch(setLocation(location.pathname))
         })
 
-        this.state = {
-            token: false
-        }
+        this.state = {token: false}
 
         this.getToken()
     }
