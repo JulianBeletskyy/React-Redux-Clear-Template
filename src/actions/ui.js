@@ -1,19 +1,4 @@
 import * as types from './types'
-import Cookies from 'js-cookie'
-
-export const setLocation = location =>
-	({
-        type: types.SET_LOCATION,
-        location
-    })
-
-export const setLang = value => {
-    Cookies.set('lang', value)
-    return {
-        type: types.SET_LANG,
-        value
-    }
-}
 
 export const setAlert = (text = '', level = 'success', delay = 2000) =>
 	({

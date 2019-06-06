@@ -1,60 +1,54 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import routing from 'config/route' // Routes config
-import { Route, Switch } from 'react-router-dom'
-import * as pages from 'scenes'
-import store, { history } from 'store'
-import { setLocation } from 'actions/ui'
-import Alert from 'components/alert'
 import Modal from 'components/modal'
-import Loader from 'components/loader'
 import './App.css'
+import { toggleModal } from 'actions/ui'
+import { getUsers } from 'actions/users'
+import RejectForm from 'components/forms/reject'
 
-class App extends Component {
-    constructor() {
-        super()
-        history.listen(location => {
-            store.dispatch(setLocation(location.pathname))
-        })
 
-        this.state = {token: false}
-
-        this.getToken()
+const App = ({dispatch, users}) => {
+    useEffect(() => {
+        dispatch(getUsers())
+    }, [true])
+    const openModal = user => () => {
+        dispatch(toggleModal(true, `Reject ${user.name}`, <RejectForm userId={user.id} />))
     }
-
-    getToken = () => {
-        setTimeout(() => {
-            this.setState({token: true})
-        }, 3000)
+    const renderUserRow = (user, i) => {
+        return  <tr key={i}>
+                    <th scope="row">{user.id}</th>
+                    <td>{user.name}</td>
+                    <td>{user.email}</td>
+                    <td className="text-center" >
+                        <div className="text-danger" onClick={openModal(user)} style={{cursor: 'pointer'}}>&#xd7;</div>
+                    </td>
+                </tr>
     }
-
-    printRoutes = (route, i) => <Route key={i} path={route.path} exact component={pages[route.component]} />
-
-    render() {
-        const key = 'public' //private
-        return (
-            <div className="App">
-                {
-                    this.state.token
-                    ?   <Switch>
-                            { routing[key].map((route, i) => this.printRoutes(route, i)) }
-                        </Switch>
-                    :   <Loader />
-                }
-                <Alert />
+    return  <div className="App">
+                <div className="container">
+                    <table className="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col" className="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                users.map((user, i) => renderUserRow(user, i))
+                            }
+                        </tbody>
+                    </table>
+                </div>
                 <Modal />
             </div>
-        );
-    }
 }
 
-const mapStateToProps = state =>
+const mapStateToProps = ({users}) =>
     ({
-        ui: {
-            lang: state.ui.lang
-        }
+        users: users.list,
     })
 
-export default connect(
-    mapStateToProps
-)(App)
+export default connect(mapStateToProps)(App)

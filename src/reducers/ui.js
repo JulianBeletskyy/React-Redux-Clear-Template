@@ -1,10 +1,6 @@
 import * as types from 'actions/types'
-import Cookies from 'js-cookie'
-import { availableLangs } from 'utils/lang'
 
 const initialState = {
-	location: '/',
-	lang: availableLangs().includes(Cookies.get('lang')) ? Cookies.get('lang') : 'en',
 	alert: {
 		message: '',
 		level: 'success',
@@ -19,10 +15,6 @@ const initialState = {
 
 export default function ui(ui = initialState, action = {}) {
 	switch (action.type) {
-		case types.SET_LOCATION:
-			return {...ui, location: action.location}
-		case types.SET_LANG:
-			return {...ui, lang: action.value}
 		case types.SET_ALERT:
 			return {...ui, alert: action.data}
 		case types.TOGGLE_MODAL:
